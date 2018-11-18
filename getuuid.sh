@@ -143,7 +143,7 @@ function getUUIDs {
 function checkUUIDs {
     if [ -z $apiOutput ]; # the -z evaluates if the variable is empty
     then 
-    echo "The API output returned null. Run with --diagnostics or -d to test internet"
+    echo "The API output returned null. Run with --diagnostics or -d to test your internet connection"
         if [ "$diagnosticsFlag" == "true" ]; # remember kids there has to be spaces in the if
         then
             echo "Since you've enabled diagnostics, I will check your connection to the internet"
