@@ -19,14 +19,14 @@ function processArguments() {
     esac
 
     case $clipboardAction in
-    saveThenPrompt|saveThanPrompt) # gotta think of people who forget than and then
+    savethenprompt|saveThanPrompt|1) # gotta think of people who forget than and then
     checkClipboardCompatibility
-    clipboardAction="saveThenPrompt"
+    clipboardAction="savethenprompt"
     ;;
-    overwrite) #
+    overwrite|2) #
     checkClipboardCompatibility
     ;;
-    ""|false)
+    ""|false|0)
     clipboardAction="false"
     ;;
     *)
@@ -84,7 +84,7 @@ esac
 }
 
 function storeClipboard {  
-    if [ "$clipboardAction" == "saveThenPrompt" ]; then
+    if [ "$clipboardAction" == "savethenprompt" ]; then
             if [ "$clipboardCompatibility" == "true" ] && [ "${machine}" == "Mac" ]; then
             clipboardContents="$(pbpaste)"
         fi
@@ -92,7 +92,7 @@ function storeClipboard {
 }
 
 function restoreClipboard { 
-    if [ "$clipboardAction" == "saveThenPrompt" ]; then
+    if [ "$clipboardAction" == "savethenprompt" ]; then
             echo "Your clipboard should now have the UUID string on it"
             echo "Press enter to restore your original clipboard"
             read null
@@ -182,13 +182,13 @@ function interactiveMode {
     echo "Enter 0 not affect your clipbaord at all"
     read clipboardAction
     if [ "$clipboardAction" == "1" ]; then
-        clipboardAction="saveThenPrompt"
+        clipboardAction="savethenprompt"
     elif [ "$clipboardAction" == "2" ]; then
         clipboardAction="overwrite"
     else
         clipboardAction="false"
     fi
-    
+
     processArguments
     fi
 }
@@ -223,7 +223,7 @@ case $key in
     shift
     ;;
     -cs)
-    clipboardAction="saveThenPrompt"
+    clipboardAction="savethenprompt"
     shift # past argument
     ;;
     -co)
