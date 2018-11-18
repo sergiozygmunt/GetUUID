@@ -16,6 +16,7 @@ You can add `-d` to the command call to get a diagnostic output which will help 
 
 ## Clipboard arguments
 You need to pass one the items below after `-c` or `--clipboard`for it to do something besides the default ignore clipboard.  
+  
 `--clipboard 0|false` or nothing - won't touch your clipboard at all  
 `--clipboard 1|savethenorompt` or `-cs` - stores the contents of your clipboard to a variable, copies the UUID output, then kindly asks you when you're ready to have the original contents of your clipboard restored.  
 `--clipboard 2|overwrite` or `-co` -obliterates your current clipboard and copies the UUID. You won't get your clipboard back  
