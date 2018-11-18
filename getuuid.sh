@@ -230,6 +230,10 @@ case $key in
     clipboardAction="overwrite"
     shift # past argument
     ;;
+    *)
+    echo "Something bad happened during the switch evaluation. Check your input."
+    exit 1
+    ;;
 esac
 done
 processArguments "$interactiveMode" "$numberOfUUIDs" "$clipboardAction" "$diagnosticsFlag" "$separator"
