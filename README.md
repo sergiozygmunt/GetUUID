@@ -1,3 +1,5 @@
+![](https://img.shields.io/github/license/sergiozygmunt/GetUUID.svg)
+
 # GetUUID
 GetUUID is a BASH script I wrote to allow for you to get UUIDs of varying sizes and attributes and either print them to screen or store them to the clipboard.
 
